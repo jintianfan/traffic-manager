@@ -90,16 +90,15 @@ var Login = function() {
 
             // init background slide images
             $('.login-bg').backstretch([
-                "http://tool.goldskyer.com/metronic/theme/assets/pages/img/login/bg1.jpg",
-                "http://tool.goldskyer.com/metronic/theme/assets/pages/img/login/bg2.jpg",
-                "http://tool.goldskyer.com/metronic/theme/assets/pages/img/login/bg3.jpg"
+                "/static/myapp/img/login/bg1.jpg",
+                "/static/myapp/img/login/bg2.jpg",
+                "/static/myapp/img/login/bg3.jpg"
                 ], {
                   fade: 1000,
                   duration: 8000
                 }
             );
 
-            $('.forget-form').hide();
 
         }
 
@@ -108,27 +107,25 @@ var Login = function() {
 }();
 
 jQuery(document).ready(function() {
-    Login.init();
-    
-    $('#like').click(function(){
-			 var catcat= CryptoJS.MD5(CryptoJS.MD5($('input[name="cat"]').val())+"")+"";
+    //Login.init();
+
+    $('#like').on("click",(function(){
 		   $.ajax({
-			   url:"/scorecloud/doLogin.json",
+			   url:"/api/doLogin",
 			   data:{
-				   "dog":$('input[name="dog"]').val(),
-				   "cat":catcat,
-				   "j_code":"cd"
+				   "username":$('input[name="username"]').val(),
+				   "password":$('input[name="password"]').val(),
 			   },
 			   success:function(data)
 			   {
-				   if(data.result=='success')
+				   if(data.code=='0')
 				   {
-					   window.parent.location.href="/scorecloud/dashboard/welcome.htm";
+					   window.parent.location.href="/area/view";
 	    			}else{
-	    				$('.error-hold').html(data.msg);
+	    				$('.error-hold').html(data.error);
 	    				$("#errAlert").show();       	    				
 	    			} 
 			   }
 		   });	
-	   });
+	   }));
 });

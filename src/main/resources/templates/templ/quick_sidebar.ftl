@@ -60,7 +60,7 @@
                             <li class="media">
                                 <img class="media-object" src="${metronicPath}/assets/layouts/layout/img/avatar1.jpg" alt="...">
                                 <div class="media-body">
-                                    <h4 class="media-heading">Nick Larson</h4>
+                                    <h4 class="media-heading">${Session.accountId!"anonymous"}</h4>
                                     <div class="media-heading-sub">
                                         Art Director
                                     </div>

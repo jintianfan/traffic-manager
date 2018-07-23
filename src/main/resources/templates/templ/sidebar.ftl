@@ -42,9 +42,9 @@
                         </#if>
 						<!--搜索框结束了-->
                         <li class="nav-item start  open">
-                            <a href="/area/view" class="nav-link nav-toggle" m2="welcome">
+                            <a href="/area/view" class="nav-link nav-toggle" m2="area-view">
                                 <i class="icon-home"></i>
-                                <span class="title">禁行区设置</span>
+                                <span class="title" m2="area-view">禁行区设置</span>
                                 <span class="selected"></span>
                                 <span class="arrow open"></span>
                             </a>                            
